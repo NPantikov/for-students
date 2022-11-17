@@ -1,0 +1,104 @@
+@import 'normalize';
+@import "variables";
+
+// === COMMON ===
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include font-main;
+  color: $color-text-main;
+  padding-top: $base*12;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.section-outer {
+  max-width: 1920px;
+}
+
+.section-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+
+  @media (max-width: $screen-l-max) {
+    max-width: 900px;
+  }
+  @media (max-width: $screen-m-max) {
+    max-width: 700px;
+  }
+  @media (max-width: $screen-s-max) {
+    max-width: 450px;
+  }
+  @media (max-width: $screen-xs-max) {
+    max-width: 300px;
+  }
+}
+
+.button-main {
+  background-color: $color-main;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: .4s;
+  color: $color-white;
+  font-weight: 700;
+  line-height: rem($base*5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: $color-main-dark;
+    transition: .4s;
+  }
+}
+
+.line-main {
+  width: $base*20;
+  height: $base;
+  background-color: $color-main;
+  border: none;
+}
+
+//Select
+
+.select {
+  position: relative;
+  z-index: 20;
+
+  &_is-active .select__body {
+    display: block;
+  }
+
+  &__header {
+  }
+
+  &__value {
+  }
+
+  &__body {
+    position: absolute;
+    display: none;
+  }
+
+  &__item {
+    &:hover {
+    }
+  }
+}
+
+
+// === / COMMON ===

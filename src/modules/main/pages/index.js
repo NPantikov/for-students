@@ -1,3 +1,4 @@
-import Main from './Main/Main'
+import Home from './Home/Home'
+import Drinks from './Drinks/Drinks'
 
-export { Main }
+export { Home, Drinks }

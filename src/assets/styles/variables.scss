@@ -1,0 +1,57 @@
+// === VARIABLES ===
+$screen-xs: 320px;
+$screen-s: 480px;
+$screen-m: 800px;
+$screen-l: 1024px;
+$screen-xl: 1280px;
+$screen-xxl: 1600px;
+
+$screen-xs-max: 479px;
+$screen-s-max: 799px;
+$screen-m-max: 1023px;
+$screen-l-max: 1279px;
+$screen-xl-max: 1599px;
+
+$color-white: #ffffff;
+$color-black: #000000;
+$color-main: #7fad39;
+$color-main-dark: #4f7d00;
+$color-text-main: #2a2a2a;
+$color-text-secondary: #757575;
+$color-text-secondary-dark: #6b6b6b;
+$color-header: #2a2a2a;
+$color-footer: #191919;
+$color-background: #f5f5f5;
+$color-background-dark: #c2c2c2;
+$color-border: rgba(42, 42, 42, 0.2);
+
+
+$font-logo: 'Inter', sans-serif;
+
+$base: 4px;
+
+
+// === / VARIABLES ===
+
+
+// === MIXINS ===
+
+@mixin font-main {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+}
+
+// === / MIXINS ===
+
+
+// === FUNCTIONS ===
+
+@function strip-unit($num) {
+  @return $num / ($num*0 + 1)
+}
+
+@function rem($num) {
+  @return (strip-unit($num) / 16) * 1rem
+}
+
+// === / FUNCTIONS ===
