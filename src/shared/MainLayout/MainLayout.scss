@@ -2,7 +2,6 @@
 
 // === HEADER ===
 .section-header {
-
   position: fixed;
   top: 0;
   left: 0;
@@ -16,13 +15,13 @@
     display: flex;
     align-items: center;
 
-    height: $base*12;
+    height: $base * 12;
 
     background-color: $color-header;
     color: $color-white;
 
-    font-size: rem($base*3);
-    line-height: $base*3.5;
+    font-size: rem($base * 3);
+    line-height: $base * 3.5;
 
     @media (max-width: $screen-s-max) {
       justify-content: space-between;
@@ -30,23 +29,23 @@
   }
 
   &-email {
-    flex: 0 0 $base*40;
+    flex: 0 0 $base * 40;
     display: flex;
     align-items: center;
 
-    border-right: 1px solid rgba(255, 255, 255, 0.5);;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
 
     font-weight: 700;
 
     @media (max-width: $screen-m-max) {
-      margin-right: $base*15;
+      margin-right: $base * 15;
     }
     @media (max-width: $screen-s-max) {
       display: none;
     }
 
     &__icon {
-      margin-right: $base*2;
+      margin-right: $base * 2;
 
       img {
       }
@@ -57,14 +56,14 @@
   }
 
   &-proposal {
-    flex: 0 0 $base*125;
+    flex: 0 0 $base * 125;
 
     font-weight: 700;
 
-    padding-left: $base*5;
+    padding-left: $base * 5;
 
     @media (max-width: $screen-l-max) {
-      flex: 0 0 $base*65;
+      flex: 0 0 $base * 65;
     }
     @media (max-width: $screen-m-max) {
       display: none;
@@ -72,61 +71,59 @@
   }
 
   &-social {
-    flex: 0 0 $base*45;
+    flex: 0 0 $base * 45;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: $base*10;
+    padding-right: $base * 10;
 
     @media (max-width: $screen-s-max) {
-      display: none
+      display: none;
     }
 
     img {
       cursor: pointer;
-      transition: .4s;
+      transition: 0.4s;
 
       &:hover {
-        opacity: .7;
-        transition: .4s;
+        opacity: 0.7;
+        transition: 0.4s;
       }
     }
   }
 
   &-select {
-    flex: 0 0 $base*30;
+    flex: 0 0 $base * 30;
   }
 
   &-language {
     display: flex;
     align-items: center;
     font-weight: 400;
-    height: $base*7;
+    height: $base * 7;
     padding-left: 10%;
-
 
     background-color: $color-header;
     cursor: pointer;
-    transition: .2s;
+    transition: 0.2s;
 
     &:hover {
       background-color: $color-background-dark;
-      transition: .2s;
+      transition: 0.2s;
     }
 
-
     &__icon {
-      width: $base*7;
+      width: $base * 7;
     }
 
     &__text {
-      margin-left: $base*2;
-      margin-right: $base*2;
-      width: $base*10;
+      margin-left: $base * 2;
+      margin-right: $base * 2;
+      width: $base * 10;
     }
 
     &__dropDownList {
-      margin-right: $base*6;
+      margin-right: $base * 6;
 
       &_select {
         opacity: 0;
@@ -135,23 +132,23 @@
   }
 
   &-login {
-    flex: 0 0 $base*45;
+    flex: 0 0 $base * 45;
     display: flex;
     align-items: center;
     font-weight: 400;
 
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: .4s;
+    transition: 0.4s;
 
     &:hover {
       color: $color-background-dark;
-      transition: .4s;
+      transition: 0.4s;
     }
 
     &__icon {
-      padding-left: $base*6;
-      padding-right: $base*2.5;
+      padding-left: $base * 6;
+      padding-right: $base * 2.5;
     }
 
     &__text {
@@ -163,28 +160,27 @@
 
 // === NAVBAR ===
 .section-navbar {
-
   .section-inner {
-    height: $base*20;
+    height: $base * 20;
     display: flex;
     align-items: center;
 
     @media (max-width: $screen-s-max) {
       flex-wrap: wrap;
       justify-content: space-between;
-      height: $base*27.5;
+      height: $base * 27.5;
     }
     @media (max-width: $screen-xs-max) {
-      height: $base*37.5;
+      height: $base * 37.5;
     }
   }
 
   .logo {
-    padding-right: $base*22.5;
+    padding-right: $base * 22.5;
     cursor: pointer;
 
     @media (max-width: $screen-l-max) {
-      padding-right: $base*10;
+      padding-right: $base * 10;
     }
     @media (max-width: $screen-m-max) {
       padding-right: 0;
@@ -194,8 +190,8 @@
   &-panel {
     display: flex;
     align-items: center;
-    padding-left: $base*2;
-    padding-right: $base*45;
+    padding-left: $base * 2;
+    padding-right: $base * 45;
 
     @media (max-width: $screen-l-max) {
       padding-right: 0;
@@ -205,30 +201,29 @@
       order: 1;
       justify-content: space-between;
       width: 100%;
-      padding-bottom: $base*2.5;
+      padding-bottom: $base * 2.5;
     }
 
-
     &__item {
-      padding: 0 $base*5 0;
+      padding: 0 $base * 5 0;
 
       text-decoration: none;
       color: inherit;
       font-weight: 400;
-      font-size: rem($base*4);
-      line-height: $base*5;
+      font-size: rem($base * 4);
+      line-height: $base * 5;
       text-transform: uppercase;
       cursor: pointer;
-      transition: .4s;
+      transition: 0.4s;
 
       @media (max-width: $screen-m-max) {
-        padding: 0 $base*2.5 0;
+        padding: 0 $base * 2.5 0;
       }
 
       &:hover {
         color: $color-main;
-        transition: .4s;
-        text-shadow: 0 0 $base*2.5 $color-background;
+        transition: 0.4s;
+        text-shadow: 0 0 $base * 2.5 $color-background;
       }
     }
 
@@ -245,22 +240,22 @@
 
     &__item {
       position: relative;
-      margin-right: $base*2;
+      margin-right: $base * 2;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      height: $base*8.5;
-      width: $base*8.5;
+      height: $base * 8.5;
+      width: $base * 8.5;
       border-radius: 100%;
 
       cursor: pointer;
-      transition: .4s;
+      transition: 0.4s;
       background-color: $color-background;
 
       &:hover {
         background-color: $color-background-dark;
-        transition: .4s;
+        transition: 0.4s;
       }
     }
 
@@ -269,12 +264,12 @@
 
     &__value {
       position: absolute;
-      top: -$base*0.5;
-      left: $base*5;
+      top: -$base * 0.5;
+      left: $base * 5;
       z-index: 10;
       box-sizing: content-box;
-      height: $base*3.5;
-      width: $base*3.5;
+      height: $base * 3.5;
+      width: $base * 3.5;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -283,8 +278,8 @@
       border-radius: 100%;
 
       font-weight: 700;
-      font-size: rem($base*2.5);
-      line-height: $base*3;
+      font-size: rem($base * 2.5);
+      line-height: $base * 3;
       color: $color-white;
     }
 
@@ -292,8 +287,8 @@
       padding-left: $base;
 
       font-weight: 400;
-      font-size: rem($base*4);
-      line-height: $base*5;
+      font-size: rem($base * 4);
+      line-height: $base * 5;
       color: $color-text-secondary;
 
       &_value {
@@ -305,3 +300,7 @@
 }
 
 // === /NAVBAR ===
+
+.content {
+  padding: 20px;
+}

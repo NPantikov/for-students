@@ -92,8 +92,8 @@ const MainLayout = (props) => {
             <a className='section-navbar-panel__item' onClick={() => navigate('/')}>
               home
             </a>
-            <a className='section-navbar-panel__item' onClick={() => navigate('/drinks')}>
-              drinks
+            <a className='section-navbar-panel__item' onClick={() => navigate('/support')}>
+              support
             </a>
           </div>
           <div className='section-navbar-purchase'>
@@ -104,7 +104,7 @@ const MainLayout = (props) => {
               <div className='section-navbar-purchase__value'>3</div>
             </div>
             <div className='section-navbar-purchase__item'>
-              <div className='section-navbar-purchase__icon'>
+              <div className='section-navbar-purchase__icon' onClick={() => navigate('/cart')}>
                 <BasketIcon />
               </div>
               <div className='section-navbar-purchase__value'>3</div>
@@ -118,7 +118,7 @@ const MainLayout = (props) => {
           </div>
         </section>
       </section>
-      <div>{props.children}</div>
+      <div className='content'>{props.children}</div>
     </div>
   )
 }

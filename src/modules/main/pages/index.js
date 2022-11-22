@@ -1,4 +1,6 @@
-import Home from './Home/Home'
-import Drinks from './Drinks/Drinks'
+import Product from './Product/Product'
+import Main from './Main/Main'
+import Support from './Support/Support'
+import Cart from './Cart/Cart'
 
-export { Home, Drinks }
+export { Product, Main, Support, Cart }
