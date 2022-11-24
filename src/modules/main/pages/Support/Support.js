@@ -1,7 +1,10 @@
-import { MainLayout } from 'shared'
-import s from './Support.module.scss'
 import { useState } from 'react'
+
+import { MainLayout } from 'shared'
+
+import s from './Support.module.scss'
 import { validateEmail } from './Support.utils'
+import { Input } from './components'
 
 const Support = () => {
   const [email, setEmail] = useState('')
@@ -38,23 +41,23 @@ const Support = () => {
   return (
     <MainLayout>
       <form className={s.root} onSubmit={onSubmit}>
-        <input
-          type='text'
+        <Input
           value={email}
           onChange={(event) => {
             setIsEmailInvalid(false)
             setEmail(event.target.value)
           }}
-          style={{ border: isEmailInvalid ? '2px solid red' : '2px solid black' }}
+          isInvalid={isEmailInvalid}
+          errorMessage={'Емайл некорректный'}
         />
-        <input
-          type='text'
+        <Input
           value={name}
           onChange={(event) => {
             setIsNameInvalid(false)
             setName(event.target.value)
           }}
-          style={{ border: isNameInvalid ? '2px solid red' : '2px solid black' }}
+          isInvalid={isNameInvalid}
+          errorMessage={'Введите имя'}
         />
         <textarea
           type='text'

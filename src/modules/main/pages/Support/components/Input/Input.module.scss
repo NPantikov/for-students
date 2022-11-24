@@ -1,0 +1,18 @@
+.root {
+  position: relative;
+}
+.errorMsg {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: red;
+  pointer-events: none;
+}
+
+.inputDefault {
+  border: 2px solid black;
+}
+
+.inputError {
+  border: 2px solid red;
+}
