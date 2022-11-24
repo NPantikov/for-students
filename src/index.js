@@ -15,7 +15,7 @@ root.render(
     <ErrorBoundary>
       <Routes>
         <Route path={'/'} element={<Main />} />
-        <Route path={'/:productId'} element={<Product />} />
+        <Route path={'/products/:productId'} element={<Product />} />
         <Route path={'/support'} element={<Support />} />
         <Route path={'/cart'} element={<Cart />} />
         <Route path={'/login'} element={<Login />} />
