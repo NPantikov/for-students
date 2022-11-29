@@ -10,28 +10,35 @@ const Main = () => {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
+  // Фильтрация
   const [searchInput, setSearchInput] = useState('')
   const [foundProducts, setFoundProducts] = useState([])
 
+  // Фильтр по категириям
   const [categories, setCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([])
 
+  // Итоговые продукты
   const [totalProducts, setTotalProducts] = useState([])
-  const [isDirty, setIsDirty] = useState(false)
 
   const searchButtonRef = useRef(null)
 
+  // Первоначальная загрузка продуктов
   useEffect(() => {
     setIsLoading(true)
     api.fetchProducts().then((data) => {
       setProducts(data)
-      setIsLoading(false)
+      setFoundProducts(data)
+      setTotalProducts(data)
 
       setCategories(['', ...Array.from(new Set(data.map((item) => item.category)))])
+
+      setIsLoading(false)
     })
   }, [])
 
+  // Обработчик события при нажатии кнопки Поиск
   const onSearch = () => {
     setFoundProducts(
       products.filter((product) =>
@@ -40,21 +47,25 @@ const Main = () => {
     )
   }
 
+  // Фильтруем продукты по категории
   useEffect(() => {
     if (selectedCategory) {
       setFilteredProducts(products.filter((product) => product.category === selectedCategory))
+    } else {
+      setFilteredProducts(products)
     }
   }, [selectedCategory, products])
 
+  // Устанавливаем итоговый список продуктов в зависимости от найденных и отфильтрованных продуктов
   useEffect(() => {
-    console.log('found', foundProducts)
-    console.log('filtered', filteredProducts)
-
-    const totalProducts = foundProducts.filter(
-      (product) => filteredProducts.indexOf(product) !== -1
-    )
-    console.log(totalProducts)
-    setTotalProducts(totalProducts)
+    if (filteredProducts.length !== products.length) {
+      const totalProducts = foundProducts.filter(
+        (product) => filteredProducts.indexOf(product) !== -1
+      )
+      setTotalProducts(totalProducts)
+    } else {
+      setTotalProducts(foundProducts)
+    }
   }, [foundProducts, filteredProducts])
 
   return (
@@ -66,9 +77,6 @@ const Main = () => {
             value={searchInput}
             onChange={(event) => {
               setSearchInput(event.target.value)
-              if (!isDirty) {
-                setIsDirty(true)
-              }
             }}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
@@ -82,11 +90,9 @@ const Main = () => {
 
           <select
             name='select'
+            value={selectedCategory}
             onChange={(event) => {
               setSelectedCategory(event.target.value)
-              if (!isDirty) {
-                setIsDirty(true)
-              }
             }}
           >
             {categories.map((category) => (
@@ -98,14 +104,16 @@ const Main = () => {
 
           <button
             onClick={() => {
-              setIsDirty(false)
+              setSearchInput('')
+              setSelectedCategory('')
+              setFoundProducts(products)
             }}
           >
             Сбросить фильтры и поиск
           </button>
         </div>
         {!isLoading ? (
-          isDirty ? (
+          totalProducts.length !== 0 ? (
             totalProducts.map((product) => (
               <ProductItem
                 key={product.id}
@@ -116,15 +124,7 @@ const Main = () => {
               />
             ))
           ) : (
-            products.map((product) => (
-              <ProductItem
-                key={product.id}
-                id={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-              />
-            ))
+            <h1>Совпадений не найдено...</h1>
           )
         ) : (
           <h1>Loading...</h1>
