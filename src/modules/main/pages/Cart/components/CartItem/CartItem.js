@@ -1,10 +1,15 @@
+import { useDispatch } from 'react-redux'
+
+import { removeProductFromCart } from '../../../../store/slice'
 import s from './CartItem.module.scss'
 
 const CartItem = (props) => {
-  const { id, title, image, price, cartProducts, setCartProducts } = props
+  const { id, title, image, price } = props
+
+  const dispatch = useDispatch()
 
   const onDeleteCartItem = () => {
-    setCartProducts(cartProducts.filter((product) => product.id !== id))
+    dispatch(removeProductFromCart(id))
   }
 
   return (

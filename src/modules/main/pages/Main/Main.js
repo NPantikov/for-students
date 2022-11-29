@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { MainLayout } from 'shared'
 import api from '../../config/api'
 import { ProductItem } from './components'
 
 import s from './Main.module.scss'
+import { setIsLoading, setProducts } from '../../store/slice'
 
 const Main = () => {
-  const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  // Redux
+  const { isLoading, products } = useSelector((state) => state.mainReducer)
+  const dispatch = useDispatch()
 
   // Фильтрация
   const [searchInput, setSearchInput] = useState('')
@@ -26,15 +29,15 @@ const Main = () => {
 
   // Первоначальная загрузка продуктов
   useEffect(() => {
-    setIsLoading(true)
+    dispatch(setIsLoading(true))
     api.fetchProducts().then((data) => {
-      setProducts(data)
+      dispatch(setProducts(data))
       setFoundProducts(data)
       setTotalProducts(data)
 
       setCategories(['', ...Array.from(new Set(data.map((item) => item.category)))])
 
-      setIsLoading(false)
+      dispatch(setIsLoading(false))
     })
   }, [])
 
