@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Pagination, Stack } from '@mui/material'
 
 import { MainLayout } from 'shared'
 import api from '../../config/api'
@@ -7,6 +8,7 @@ import { ProductItem } from './components'
 
 import s from './Main.module.scss'
 import { setIsLoading, setProducts } from '../../store/slice'
+import { getPageProducts } from './Main.utils'
 
 const Main = () => {
   // Redux
@@ -25,6 +27,11 @@ const Main = () => {
   // Итоговые продукты
   const [totalProducts, setTotalProducts] = useState([])
 
+  // Пагинация
+  const [page, setPage] = useState(0)
+  const [pageSize, setPageSize] = useState(5)
+  const [pageCount, setPageCount] = useState(0)
+
   const searchButtonRef = useRef(null)
 
   // Первоначальная загрузка продуктов
@@ -33,7 +40,7 @@ const Main = () => {
     api.fetchProducts().then((data) => {
       dispatch(setProducts(data))
       setFoundProducts(data)
-      setTotalProducts(data)
+      setTotalProducts(getPageProducts(data, 0, 5))
 
       setCategories(['', ...Array.from(new Set(data.map((item) => item.category)))])
 
@@ -43,6 +50,7 @@ const Main = () => {
 
   // Обработчик события при нажатии кнопки Поиск
   const onSearch = () => {
+    setPage(0)
     setFoundProducts(
       products.filter((product) =>
         product.title.toLowerCase().includes(searchInput.toLowerCase().trim())
@@ -65,11 +73,13 @@ const Main = () => {
       const totalProducts = foundProducts.filter(
         (product) => filteredProducts.indexOf(product) !== -1
       )
-      setTotalProducts(totalProducts)
+      setTotalProducts(getPageProducts(totalProducts, page, pageSize))
+      setPageCount(Math.ceil(totalProducts.length / pageSize))
     } else {
-      setTotalProducts(foundProducts)
+      setTotalProducts(getPageProducts(foundProducts, page, pageSize))
+      setPageCount(Math.ceil(foundProducts.length / pageSize))
     }
-  }, [foundProducts, filteredProducts])
+  }, [foundProducts, filteredProducts, page, pageSize])
 
   return (
     <MainLayout>
@@ -96,6 +106,7 @@ const Main = () => {
             value={selectedCategory}
             onChange={(event) => {
               setSelectedCategory(event.target.value)
+              setPage(0)
             }}
           >
             {categories.map((category) => (
@@ -110,10 +121,12 @@ const Main = () => {
               setSearchInput('')
               setSelectedCategory('')
               setFoundProducts(products)
+              setPage(0)
             }}
           >
             Сбросить фильтры и поиск
           </button>
+          {/*<input type='number' value={pageSize} onChange={(e) => setPageSize(e.target.value)} />*/}
         </div>
         {!isLoading ? (
           totalProducts.length !== 0 ? (
@@ -133,6 +146,16 @@ const Main = () => {
           <h1>Loading...</h1>
         )}
       </div>
+      <Stack spacing={2}>
+        <Pagination
+          page={page + 1}
+          count={pageCount}
+          onChange={(event, page) => {
+            setPage(page - 1)
+          }}
+          color='primary'
+        />
+      </Stack>
     </MainLayout>
   )
 }
