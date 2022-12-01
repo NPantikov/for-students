@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/for-students/static/css/main.3a8d876f.css",
+    "main.js": "/for-students/static/js/main.b14b175d.js",
+    "static/media/logo.svg": "/for-students/static/media/logo.2d79626eed6aa68f5c6c9dc4bf922e71.svg",
+    "static/media/language_english.svg": "/for-students/static/media/language_english.91f546ac12a6a3dbb6da40e3b565082c.svg",
+    "static/media/twitter.svg": "/for-students/static/media/twitter.45fc57f56d297b6736506dc639268a95.svg",
+    "static/media/language_german.svg": "/for-students/static/media/language_german.ae6d96ef1254e868ac6d49956fb9fff2.svg",
+    "static/media/language_russian.svg": "/for-students/static/media/language_russian.63607c05087c39fb794f85c56db1ccdb.svg",
+    "static/media/language_french.svg": "/for-students/static/media/language_french.58f2ed24ad9564bc7bcad2874b258193.svg",
+    "static/media/whatsapp.svg": "/for-students/static/media/whatsapp.f1d91fe2d7ddb62ceb5ddcb79401a561.svg",
+    "index.html": "/for-students/index.html",
+    "static/media/linkedin.svg": "/for-students/static/media/linkedin.6cbf5d6e81bfd707163639c30f9e2f47.svg",
+    "static/media/favorites.svg": "/for-students/static/media/favorites.dcc3c4afd8c1f0d61156fb98ac1eac7e.svg",
+    "static/media/facebook.svg": "/for-students/static/media/facebook.541127107fe0d14ae59b0e99e4860282.svg",
+    "static/media/login.svg": "/for-students/static/media/login.24018002ec3a830b1fee1eae222a7cb3.svg",
+    "static/media/basket.svg": "/for-students/static/media/basket.19e4bb620ee97aa4a15fda7808a0f252.svg",
+    "static/media/email.svg": "/for-students/static/media/email.d7b5125350f853ab4a9c6268b471c935.svg",
+    "static/media/dropDownList_black.svg": "/for-students/static/media/dropDownList_black.3b7ceeb94bd3871dfd3bee27088a29d6.svg",
+    "static/media/arrow-right.svg": "/for-students/static/media/arrow-right.6eb07072a54273e5b19b1b433c48db57.svg",
+    "static/media/arrow-left.svg": "/for-students/static/media/arrow-left.0d085785671d47cfb4f2d4eb0a2cae9f.svg",
+    "static/media/dropDownList.svg": "/for-students/static/media/dropDownList.55857cc2705c5484ccf1211a61b4f072.svg",
+    "static/media/burger.svg": "/for-students/static/media/burger.85ddbb0d17bc15fec753ebd44be3942b.svg",
+    "main.3a8d876f.css.map": "/for-students/static/css/main.3a8d876f.css.map",
+    "main.b14b175d.js.map": "/for-students/static/js/main.b14b175d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a8d876f.css",
+    "static/js/main.b14b175d.js"
+  ]
+}
