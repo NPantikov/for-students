@@ -49,7 +49,6 @@ const Login = () => {
             type={'password'}
             error={Boolean(errors?.password)}
             helperText={errors?.password?.message}
-            type={'password'}
             {...register('password')}
           />
           <Button type={'submit'} variant={'contained'} size={'large'}>
